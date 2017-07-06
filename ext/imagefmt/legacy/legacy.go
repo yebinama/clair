@@ -20,7 +20,6 @@ import (
 	"github.com/coreos/clair/pkg/tarutil"
 	"io"
 	"io/ioutil"
-	"strings"
 )
 
 // format implements imagefmt.Extractor and detects layer data in "Legacy" format
@@ -39,7 +38,7 @@ func init() {
 // Detect detects the required data from input path
 // Reads json
 func (f format) ExtractFiles(layerReader io.ReadCloser, toExtract []string) (tarutil.FilesMap, error) {
-	data = make(map[string][]byte)
+	data := make(map[string][]byte)
 	jsonData := jsonLegacy{}
 
 	// Read file
